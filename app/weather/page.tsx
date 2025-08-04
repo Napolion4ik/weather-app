@@ -10,14 +10,17 @@ type WeatherData = {
   };
 };
 
-export default async function WeatherPage({
-  searchParams,
-}: {
+interface WeatherPageProps {
   searchParams?: {
-    latitude?: string | undefined;
-    longitude?: string | undefined;
+    latitude?: string;
+    longitude?: string;
   };
+}
+
+export default async function WeatherPage(props: {
+  searchParams: Promise<WeatherPageProps["searchParams"]>;
 }) {
+  const searchParams = await props.searchParams;
   //Київ default
   const lat = searchParams?.latitude || "50.45";
   const lon = searchParams?.longitude || "30.52";

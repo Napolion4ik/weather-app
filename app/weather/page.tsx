@@ -13,7 +13,10 @@ type WeatherData = {
 export default async function WeatherPage({
   searchParams,
 }: {
-  searchParams?: { latitude: string; longitude: string };
+  searchParams?: {
+    latitude?: string | undefined;
+    longitude?: string | undefined;
+  };
 }) {
   //Київ default
   const lat = searchParams.latitude || "50.45";

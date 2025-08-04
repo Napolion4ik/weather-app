@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import WeatherCard from "../weather/WeatherCard";
-import { log } from "console";
 
 export const cities = [
   { name: "London", lat: 51.5072, lon: -0.1276 },

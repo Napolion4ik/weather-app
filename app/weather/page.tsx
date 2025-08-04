@@ -19,8 +19,8 @@ export default async function WeatherPage({
   };
 }) {
   //Київ default
-  const lat = searchParams.latitude || "50.45";
-  const lon = searchParams.longitude || "30.52";
+  const lat = searchParams?.latitude || "50.45";
+  const lon = searchParams?.longitude || "30.52";
 
   const res = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode&hourly=temperature_2m&timezone=Europe/Kyiv`,

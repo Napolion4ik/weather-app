@@ -1,7 +1,17 @@
 import WeatherCard from "@/components/weather/WeatherCard";
 
+interface CurrentWeather {
+  time: string;
+  interval: number;
+  temperature: number;
+  windspeed: number;
+  winddirection: number;
+  is_day: number;
+  weathercode: number;
+}
+
 type WeatherData = {
-  current_weather: { temperature: number; weathercode: number };
+  current_weather: CurrentWeather;
   daily?: {
     temperature_2m_max: number[];
     temperature_2m_min: number[];
@@ -37,6 +47,7 @@ export default async function WeatherPage(props: {
 
   const data: WeatherData = await res.json();
   const curr = data.current_weather;
+  console.log(data);
   const daily = data.daily!;
   const todayIndex = 0;
   const max = daily.temperature_2m_max[todayIndex];
